@@ -1,0 +1,39 @@
+Goals:
+Each relay will turn on when a specified temperature sensors temperature or humidity level reaches is within a certain range.
+
+Screen shows (If OLED is present)
+4 values configured via the /config screen.
+Default is DHT11#1 Temperature & Humidity on the left one on top of the other and DHT11#2
+
+Wemos D1 Mini
+DHT11 1-2 Temperature/Humidity sensor.
+DS18B20 Temperature Sensors + 4.7K Resistor
+OLED Screen
+Relay 1-3
+
+
+A0 - PhotoResistor
+D1 - SCL
+D2 - SDA
+D3 - DHT11 data
+D4 - DHT11 data
+D5 - OneWire
+D6 - Relay 1/Motor speed controller
+D7 - Relay 2/Motor speed controller
+D8 - Relay 3/Motor speed controller
+
+Web Pages: http://sunroom.local
+/ (index.html) Defalt landing page.
+
+/config - Allow you to configure the wifi
+
+/relay?id=#&state=on - turn relay 1 on
+/relay?id=#&state=off - turn relay 1 off
+/dht11?id=#&relay=#&tmax=#&tmin=#&hmax=#&hmin=# - Set the max and min value for which dht11 #1 will turn on 
+/ds18b20?id=#&tmax=#tmin=#
+
+/light.json - Photoresistor reading.
+/dht11.json - Samples all three DHT11 sensors.
+/ds18b20.json - Current values of all ds18b20 sensors.
+/relay.json - Returns the status of all three relays.
+/status.json (Combined status of dht11, light, and replay positions).
